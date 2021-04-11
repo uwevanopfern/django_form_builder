@@ -1,0 +1,46 @@
+{% load static %}
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="nav-link" href="{% url 'home' %}">
+    <img
+      id="logo"
+      src="{% static 'images/logo.png' %}"
+      width="50"
+      height="40"
+    />
+  </a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'home' %}">Home</a>
+      </li>
+      {% if user.is_staff %}
+      <li class="nav-item active">
+        <a class="nav-link" href="#">View Forms</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Assign Form</a>
+      </li>
+      {% else %}
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Fill Form</a>
+      </li>
+      {% endif %}
+    </ul>
+    <a class="nav-link" href="{% url 'logout' %}"
+      ><span style="color: #fff">Logout</span></a
+    >
+  </div>
+</nav>
