@@ -1,0 +1,47 @@
+{% extends 'food/main_template.html' %} {% load static %} {% block content %}
+<br />
+
+<div class="row">
+    <div class="col-md-6 offset-3">
+        <div class="card card-body">
+            <h4>Client details</h4>
+            {% for message in messages %}
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                {{message}}
+                <button
+                    type="button"
+                    class="close"
+                    data-dismiss="alert"
+                    aria-label="Close"
+                >
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+            {% endfor %}
+            <div class="card-body">
+                <form method="POST" action="{% url 'form.assign' %}">
+                    {% csrf_token %}
+                    <h5 class="card-title">{{client.username}}</h5>
+                    <p class="card-text">{{client.email}}</p>
+                    <hr/>
+                    <h6>Assign forms</h6>
+                    {% for form in forms %}
+                    <input type="hidden" name="client_id" value="{{client.id}}">
+                    <input type="checkbox" name="forms" 
+                        aria-label="Checkbox for following text input" 
+                        value="{{form.id}}">
+                        <span class="badge badge-light">
+                            {{ form.title }}
+                        </span>
+                    </input><br/>
+                    {% empty %}
+                        {% include 'food/form_not_found.html' %}
+                    {% endfor %}
+                    <br/>
+                    <input class="btn btn-secondary btn-sm" type="submit" value="Assign forms">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

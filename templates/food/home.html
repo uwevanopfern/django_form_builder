@@ -4,11 +4,22 @@
 <div class="row">
   <div class="col-md-6 offset-3">
     <div class="card card-body">
-      <a class="btn btn-primary btn-sm btn-block" href="">Create Form</a>
-    <hr />
 
     <h4>List of users</h4>
 
+      {% for message in messages %}
+        <div class="alert alert-info alert-dismissible fade show" role="alert">
+          {{message}}
+          <button
+            type="button"
+            class="close"
+            data-dismiss="alert"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      {% endfor %}
       <table class="table table-sm">
         <tr>
           <th>Username</th>
@@ -19,7 +30,9 @@
           <tr>
            <td>{{client.username}}</td>
 						<td>{{client.email}}</td>
-						<td><a class="btn btn-sm btn-info" href="#">Assign form</a></td>
+						<td>
+              <a class="btn btn-sm btn-secondary" href="{% url 'client' client.id %}">Assign form</a>
+            </td>
           </tr>
           {% endfor %}
       </table>

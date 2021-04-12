@@ -1,0 +1,21 @@
+{% extends 'food/main_template.html' %} {% load static %} {% block content %}
+<br />
+
+<div class="row">
+  <div class="col-md-4 offset-3">
+    <div class="card card-body">
+      <h3>List of all forms</h3>
+      {% for form in forms %}
+      <ul class="list-group">
+        <li class="list-group-item">
+          {{ form.title }}
+          <a href="/admin/forms/form/{{form.id}}/entries/show/" target="_blank">
+            View all entries
+          </a>
+        </li>
+      </ul>
+      {% empty %} {% include 'food/form_not_found.html' %} {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock content %}
