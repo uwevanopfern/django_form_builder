@@ -1,8 +1,8 @@
 from django.forms import ModelForm
-from forms_builder.forms.models import Form
+from forms_builder.forms.models import Field
 
 
 class ClientForm(ModelForm):
     class Meta:
-        model = Form
+        model = Field
         fields = '__all__'

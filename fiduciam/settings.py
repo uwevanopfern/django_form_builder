@@ -124,3 +124,12 @@ MEDIA_URL = '/images/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
+
+AUTH_USER_MODEL = 'food.User'
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+# PASSWORD_HASHERS = (
+#     'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
+# )

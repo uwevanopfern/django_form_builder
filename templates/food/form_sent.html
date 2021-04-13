@@ -1,0 +1,17 @@
+{% extends 'food/main_template.html' %} {% load static %} {% block content %}
+<br />
+
+<div class="row">
+  <div class="col-md-6 offset-3">
+    <div class="card card-body">
+      <div class="alert alert-success" role="alert">
+        <h4 class="alert-heading">Well done!</h4>
+        <p>Your form has been submitted to system admins</p>
+        <hr />
+        <p class="mb-0">Thank you for your time with us</p>
+      </div>
+      <a href="{% url 'home' %}"> Back to home </a>
+    </div>
+  </div>
+</div>
+{% endblock content %}

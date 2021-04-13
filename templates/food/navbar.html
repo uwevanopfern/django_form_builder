@@ -23,20 +23,17 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
+      {% if request.user.is_authenticated %}
       <li class="nav-item active">
         <a class="nav-link" href="{% url 'home' %}">Home</a>
       </li>
-      {% if user.is_staff %}
+      {% if user.is_admin %}
       <li class="nav-item active">
         <a class="nav-link" href="{% url 'forms' %}">View Forms</a>
       </li>
-      {% else %}
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Fill Form</a>
-      </li>
       {% endif %}
     </ul>
-    {% if request.user.is_authenticated %}
+    <h6 style="color:#fff">Welcome {{user.username}}<h6>
     <a class="nav-link" href="{% url 'logout' %}"
       ><span style="color: #fff">Logout</span></a
     >

@@ -6,7 +6,7 @@ urlpatterns = [
     path('logout/', views.logout_user, name="logout"),
     path('home', views.home, name="home"),
     path('forms', views.forms, name="forms"),
-    path('assign_forms', views.assign_forms, name="form.assign"),
-    path('client/<int:pk>', views.client_details, name="client"),
-    # assign_forms
+    path('forms/sent', views.form_sent, name="form.sent"),
+    path('me/<str:slug>',views.fill_form, name="forms.fill"),
+    path('client/<int:pk>', views.client_details, name="client")
 ]

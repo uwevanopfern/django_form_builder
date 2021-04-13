@@ -5,6 +5,7 @@
   <div class="col-md-6 offset-3">
     <div class="card card-body">
 
+    {% if request.user.is_admin %}  
     <h4>List of users</h4>
 
       {% for message in messages %}
@@ -24,18 +25,36 @@
         <tr>
           <th>Username</th>
           <th>Email</th>
-          <th>Action</th>
+          <th>Form Assigned</th>
+          <th>Details</th>
         </tr>
         {% for client in clients %}
           <tr>
            <td>{{client.username}}</td>
 						<td>{{client.email}}</td>
+            <td><span class="badge badge-dark">{{client.forms.count}}</span></td>
 						<td>
-              <a class="btn btn-sm btn-secondary" href="{% url 'client' client.id %}">Assign form</a>
+              <a class="btn btn-sm btn-secondary" href="{% url 'client' client.id %}">View details</a>
             </td>
           </tr>
           {% endfor %}
       </table>
+      {% else %}
+      <h4>Your forms</h4>
+      <table class="table table-sm">
+        <tr>
+          <th>Form</th>
+          <th>Action</th>
+        </tr>
+        {% for form in auth_forms %}
+          <td>{{form.title}}</td>
+          <td><a href='{{ form.get_absolute_url }}'>Fill out the form</a></td><br/>
+          <td><a href='/me/{{form.slug}}'>Fill out the form</a></td>
+        {% empty %}
+        <div class="alert alert-info" role="alert"You have not assigned to any form yet!</div>
+        {% endfor %}
+      </table>
+      {% endif %}
     </div>
   </div>
   </div>
