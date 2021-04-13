@@ -44,12 +44,10 @@
       <table class="table table-sm">
         <tr>
           <th>Form</th>
-          <th>View data</th>
           <th>Fill the form</th>
         </tr>
         {% for form in auth_forms %}
           <tr>
-            <td>{{form.title}}</td>
             <td>{{form.title}}</td>
             <td><a href='/fill/forms/{{form.slug}}'>Fill out the form</a></td>
           </tr>
