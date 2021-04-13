@@ -44,12 +44,15 @@
       <table class="table table-sm">
         <tr>
           <th>Form</th>
-          <th>Action</th>
+          <th>View data</th>
+          <th>Fill the form</th>
         </tr>
         {% for form in auth_forms %}
-          <td>{{form.title}}</td>
-          <td><a href='{{ form.get_absolute_url }}'>Fill out the form</a></td><br/>
-          <td><a href='/me/{{form.slug}}'>Fill out the form</a></td>
+          <tr>
+            <td>{{form.title}}</td>
+            <td>{{form.title}}</td>
+            <td><a href='/fill/forms/{{form.slug}}'>Fill out the form</a></td>
+          </tr>
         {% empty %}
         <div class="alert alert-info" role="alert"You have not assigned to any form yet!</div>
         {% endfor %}

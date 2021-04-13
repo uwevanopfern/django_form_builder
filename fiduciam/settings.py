@@ -129,7 +129,3 @@ AUTH_USER_MODEL = 'food.User'
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
 )
-
-# PASSWORD_HASHERS = (
-#     'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
-# )

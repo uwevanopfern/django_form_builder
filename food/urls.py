@@ -7,6 +7,6 @@ urlpatterns = [
     path('home', views.home, name="home"),
     path('forms', views.forms, name="forms"),
     path('forms/sent', views.form_sent, name="form.sent"),
-    path('me/<str:slug>',views.fill_form, name="forms.fill"),
+    path('fill/forms/<str:slug>',views.form_detail, name="form_detail"),
     path('client/<int:pk>', views.client_details, name="client")
 ]
