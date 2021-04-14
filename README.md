@@ -1,4 +1,4 @@
-## Fiduciam - Local Development Setup Guide
+## Local Development Setup Guide
 
 ### Prerequisite
 
